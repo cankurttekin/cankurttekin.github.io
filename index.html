@@ -1,52 +1,53 @@
-<html>
-<html lang="tr">
- <head>
-<meta charset="UTF-8">
-  <title>can kurttekin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=2.0">
- </head>
- <body style="font-size:1.5em;">
-<pre>
-    hi, im can kurttekin.
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>cankurttekin</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+    <div id="terminal">
+      <div id="mainInfo">
+        <div>
+          <div class="inlineContainer">
+            <pre>
+ ██████╗ █████╗ ███╗   ██╗    ██╗  ██╗██╗   ██╗██████╗ ████████╗████████╗███████╗██╗  ██╗██╗███╗   ██╗
+██╔════╝██╔══██╗████╗  ██║    ██║ ██╔╝██║   ██║██╔══██╗╚══██╔══╝╚══██╔══╝██╔════╝██║ ██╔╝██║████╗  ██║
+██║     ███████║██╔██╗ ██║    █████╔╝ ██║   ██║██████╔╝   ██║      ██║   █████╗  █████╔╝ ██║██╔██╗ ██║
+██║     ██╔══██║██║╚██╗██║    ██╔═██╗ ██║   ██║██╔══██╗   ██║      ██║   ██╔══╝  ██╔═██╗ ██║██║╚██╗██║
+╚██████╗██║  ██║██║ ╚████║    ██║  ██╗╚██████╔╝██║  ██║   ██║      ██║   ███████╗██║  ██╗██║██║ ╚████║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+        </pre>
+            <img src="can.jpeg" alt class="avatar" />
+          </div>
+          <br />
+          hello!
+          <br />
+          <div id="helpCmdList"></div>
+        </div>
+      </div>
+      <div id="output"></div>
+      <div id="input" class="command-input">
+        <span id="prompt">
+          <span class="ownerTerminal"><b>hireme@your-company.com</b></span><b>:~$</b>
+        </span>
 
-email: <a href="mailto:can@cankurttekin.com" style="display: none;" id="mail">can@cankurttekin.com</a> <button onclick="hideMail()" id="btn">show</button>
-github: <a href="https://www.github.com/cankurttekin">github.com/cankurttekin</a>
-linkedin: <a href="https://www.linkedin.com/in/cankurttekin">linkedin.com/in/cankurttekin</a>
+        <input
+          type="text"
+          id="cmd"
+          oninput="showSuggestions()"
+          onkeydown="handleKeyDown(event)"
+        />
+      </div>
 
+      <div id="suggestions"></div>
+    </div>
+  </body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
 
-resume: <a href="resume.html">/resume.html</a>
-
-
-  projects:
-           <a href="#">[xxx]</a>
-           <a href="bus-stop-display.html">[bus stop display iic]</a>
-           <a href="portable.html">[fakerdeck - portable linux terminal]</a>
-           <a href="#">[xxx]</a>
-           <a href="#">[xxx]</a>
-
-
-</pre>
-<br>
-________________
-
-  <div class="kedi">
-   <img id="photo" style="height: 100px;" src="https://thecatapi.com/api/images/get?format=src&amp;type=gif" alt="">
-
-   <button onclick="window.location.reload();">&#10227;</button>
-  </div>
-
-<script>
-  function hideMail() {
-    const btn = document.getElementById("btn");
-    var x = document.getElementById("mail");
-    if (x.style.display === "none") {
-      x.style.display = "inline";
-  	   btn.textContent = "hide";
-    } else {
-      x.style.display = "none";
-      btn.textContent = "show";
-    }
-}
-</script>
- </body>
+</body>
 </html>

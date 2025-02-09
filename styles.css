@@ -5,16 +5,44 @@
     box-sizing: border-box;
 }
 
-/* Body and overall layout */
+/* Regular FreeSans font */
+@font-face {
+    font-family: 'FreeSans';
+    src: url('fonts/FreeSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Italic FreeSans font */
+@font-face {
+    font-family: 'FreeSans';
+    src: url('fonts/FreeSansOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Bold FreeSans font */
+@font-face {
+    font-family: 'FreeSans';
+    src: url('fonts/FreeSansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-family: Ubuntu, sans-serif;
+    font-family: 'FreeSans', sans-serif;
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align to the top of the page */
-    height: 100vh; /* Ensure the body takes full height */
+    height: 100vh; /* body takes full height */
     color: #333;
     overflow: auto; /* Allow scrolling if the content exceeds the viewport */
     padding: 20px;
+    background: 
+        radial-gradient(circle, #ccc 1px, transparent 1px) 0 0, 
+        radial-gradient(circle, #ccc 1px, transparent 1px) 30px 30px;
+    background-size: 30px 30px; /* Control the size of the dots */
+    background-repeat: repeat;
 }
 
 /* Container to center the content */
@@ -23,19 +51,20 @@ body {
     width: 100%;
     padding: 20px;
     background-color: white;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     margin-top: 20px; /* Add some space at the top */
     flex: 1 1 auto; /* Allow the container to grow as needed */
 }
 
 /* Header styles */
 header {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 section {
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
+
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -54,9 +83,10 @@ h2 {
 }
 
 h3 {
-	padding-bottom: 10px;
-	border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
+
 ul {
 }
 
@@ -64,8 +94,8 @@ ul li {
     margin: 10px 40px;
 }
 
-ul li::marker{
-	color: #ababab;
+ul li::marker {
+    color: #ababab;
 }
 
 ul li a {
@@ -78,9 +108,7 @@ ul li a:hover {
     text-decoration: none;
     font-style: italic;
     color: #a68af9;
-    
 }
-
 
 ul li a:hover .project-image {
     transform: scale(1.05);
@@ -106,73 +134,83 @@ footer .links a:hover {
 
 /* Reset styles for padding and margin */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Projects container - flexbox for stacking cards vertically */
 .projects-container {
-  display: flex;
-  flex-direction: column; /* Stack the cards vertically */
-  gap: 20px; /* Space between each card */
-  padding: 20px;
+    display: flex;
+    flex-direction: row; /* Stack the cards vertically */
+    flex-wrap: wrap; /* Allow wrapping of cards to the next row */
+    gap: 20px; /* Space between each card */
+    padding: 20px;
 }
 
 /* Style for each project card */
 .project-card {
-  position: relative;
-  width: 100%; /* Card takes the full width of the parent container */
-  height: 200px; /* Height set to be more of a horizontal rectangle */
-  border-radius: 15px;
-  overflow: hidden;
-  background-position: top center; /* Align the top of the GIF with the top of the card */
-  background-size: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  display: block; /* Makes the card a block-level element */
-  text-decoration: none; /* Remove underline from the anchor tag */
+    position: relative;
+    width: calc(33.33% - 20px); /* Take up one-third of the row, minus the gap */
+    height: 200px; /* Height set to be more of a horizontal rectangle */
+    border-radius: 15px;
+    overflow: hidden;
+    background-position: top center; /* Align the top of the GIF with the top of the card */
+    background-size: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: block; /* Makes the card a block-level element */
+    text-decoration: none; /* Remove underline from the anchor tag */
 }
 
+/* Hover effect on project cards */
 .project-card:hover {
-  transform: translateY(-10px); /* Slight lift effect on hover */
+    transform: translateY(-10px); /* Slight lift effect on hover */
 }
 
-/* Content at the bottom of each card */
+/* Content at the bottom of each card (before hover) */
 .card-content {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 36%;
-  background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
-  color: #333;
-  padding: 2px;
-  text-align: center;
-  /*border-top: 2px solid #fff;*/
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 36%;
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease; /* Smooth transition */
+    overflow: hidden; /* Hide content initially */
 }
 
+/* Hover effect to make content cover the full card */
+.project-card:hover .card-content {
+    bottom: 0;
+    height: 100%; /* Make content cover the entire card */
+    background-color: rgba(255, 255, 255, 0.9); /* Make background more opaque on hover */
+}
+
+/* Title and description styles */
 .project-title {
-  font-size: 1em;
-  font-weight: bold;
-  margin-bottom: 1px;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 1px;
 }
 
 .project-description {
-  font-size: 0.7em;
-  line-height: 1.4;
-  color: #555;
+    font-size: 0.7em;
+    line-height: 1.4;
+    color: #555;
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+    .project-card {
+        width: calc(50% - 20px); /* 2 cards per row on medium screens */
+    }
+}
+
 @media (max-width: 768px) {
-  .project-card {
-    height: 250px; /* Adjust height for medium screens */
-  }
+    .project-card {
+        width: calc(100% - 20px); /* 1 card per row on small screens */
+    }
 }
-
-@media (max-width: 480px) {
-  .project-card {
-    height: 200px; /* Adjust height for small screens */
-  }
-}
-

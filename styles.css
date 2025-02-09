@@ -153,12 +153,12 @@ footer .links a:hover {
     position: relative;
     width: calc(33.33% - 20px); /* Take up one-third of the row, minus the gap */
     height: 200px; /* Height set to be more of a horizontal rectangle */
-    border-radius: 15px;
+    border-radius: 4px;
     overflow: hidden;
     background-position: top center; /* Align the top of the GIF with the top of the card */
     background-size: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
     display: block; /* Makes the card a block-level element */
     text-decoration: none; /* Remove underline from the anchor tag */
 }

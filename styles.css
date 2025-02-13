@@ -428,3 +428,20 @@ footer .links a:hover {
         width: calc(100% - 20px); /* 1 card per row on small screens */
     }
 }
+
+
+.links a[href*="blog"]:hover::after {
+    content: " - Warning: blogger, runs nonfree nontrivial JavaScript";
+    font-size: 0.9em;
+    color: #888;
+    margin-left: 5px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.links a[href*="blog"]::after {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+

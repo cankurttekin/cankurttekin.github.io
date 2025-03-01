@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Your Browser Tells</title>
+    <style>
+	/* Regular FreeSans font */
+        @font-face {
+            font-family: 'FreeSans';
+            src: url('../fonts/FreeSans.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Italic FreeSans font */
+        @font-face {
+            font-family: 'FreeSans';
+            src: url('../fonts/FreeSansOblique.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* Bold FreeSans font */
+        @font-face {
+            font-family: 'FreeSans';
+            src: url('../fonts/FreeSansBold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body { font-family: FreeSans, sans-serif; margin: 20px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        .ad-banner { display: block; height: 1px; width: 1px; position: absolute; left: -9999px; }
+        .language-switcher { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('tr')">Türkçe</button>
+    </div>
+    <h1 id="title">browsertest</h1>
+    <pre id="info">Loading...</pre>
+    <div id="ad-test" class="ad-banner"></div>
+
+    <script src="translations.js"></script>
+    <script>
+        let currentLanguage = 'en';
+
+        function setLanguage(language) {
+            currentLanguage = language;
+            document.getElementById('title').textContent = translations[language].title;
+            document.getElementById('info').textContent = translations[language].loading;
+            getBrowserLeaks();
+        }
+
+        async function getPublicIP() {
+            try {
+                let response = await fetch('https://api64.ipify.org?format=json');
+                let data = await response.json();
+                return data.ip;
+            } catch (error) {
+                return 'Could not retrieve';
+            }
+        }
+
+        async function getISP(ip) {
+            try {
+                let response = await fetch(`https://ipapi.co/${ip}/json/`);
+                let data = await response.json();
+                return data.org || 'Could not retrieve';
+            } catch (error) {
+                return 'Could not retrieve';
+            }
+        }
+
+        function detectAdBlock() {
+            return new Promise((resolve) => {
+                const adUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+                const script = document.createElement('script');
+                script.src = adUrl;
+                script.onerror = () => resolve(true);
+                script.onload = () => resolve(false);
+                document.body.appendChild(script);
+                setTimeout(() => resolve(true), 1000); // Resolve true if script doesn't load within 1 second
+            });
+        }
+
+        async function getGeoLocation(ip) {
+            try {
+                let response = await fetch(`https://ipapi.co/${ip}/json/`);
+                let data = await response.json();
+                return `${data.city}, ${data.region}, ${data.country_name} (Lat: ${data.latitude}, Long: ${data.longitude})`;
+            } catch (error) {
+                return 'Could not retrieve';
+            }
+        }
+
+        function getWebRTCIP() {
+            return new Promise((resolve) => {
+                let rtc = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] });
+                rtc.createDataChannel('');
+                rtc.createOffer().then(offer => rtc.setLocalDescription(offer));
+                rtc.onicecandidate = event => {
+                    if (event && event.candidate && event.candidate.candidate) {
+                        let ipMatch = event.candidate.candidate.match(/(\d+\.\d+\.\d+\.\d+)/);
+                        resolve(ipMatch ? ipMatch[0] : 'Not Available');
+                    }
+                };
+                setTimeout(() => resolve('Not Available'), 3000);
+            });
+        }
+
+        function getWebGLInfo() {
+            try {
+                let canvas = document.createElement("canvas");
+                let gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+                let debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+                return {
+                    vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+                    renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+                };
+            } catch (error) {
+                return { vendor: 'Not Available', renderer: 'Not Available' };
+            }
+        }
+
+        function getCanvasFingerprint() {
+            let canvas = document.createElement("canvas");
+            let ctx = canvas.getContext("2d");
+            ctx.textBaseline = "top";
+            ctx.font = "14px Arial";
+            ctx.fillText("Browser Fingerprint", 2, 2);
+            return btoa(canvas.toDataURL()).slice(0, 16); // Short hash for user-friendly output
+        }
+
+        function getAudioFingerprint() {
+            try {
+                let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                let oscillator = audioCtx.createOscillator();
+                let analyser = audioCtx.createAnalyser();
+                let gain = audioCtx.createGain();
+                oscillator.type = 'triangle';
+                oscillator.connect(gain);
+                gain.connect(analyser);
+                analyser.connect(audioCtx.destination);
+                oscillator.start(0);
+                let fingerprint = analyser.frequencyBinCount;
+                oscillator.stop();
+                return `Audio Fingerprint: ${fingerprint}`;
+            } catch (error) {
+                return 'Not Available';
+            }
+        }
+
+        function getInstalledFonts() {
+            const baseFonts = ['monospace', 'sans-serif', 'serif'];
+            const testString = "cankdhaskjs";
+            const testSize = '72px';
+            const h = document.getElementsByTagName("body")[0];
+            const s = document.createElement("span");
+            s.style.fontSize = testSize;
+            s.innerHTML = testString;
+            const defaultWidth = {};
+            const defaultHeight = {};
+            for (let index in baseFonts) {
+                s.style.fontFamily = baseFonts[index];
+                h.appendChild(s);
+                defaultWidth[baseFonts[index]] = s.offsetWidth;
+                defaultHeight[baseFonts[index]] = s.offsetHeight;
+                h.removeChild(s);
+            }
+
+            const fontList = [
+                "Arial", "Verdana", "Times New Roman", "Courier New", "Georgia", "Palatino", "Garamond", "Bookman", "Comic Sans MS", "Trebuchet MS", "Arial Black", "Impact", "Ubuntu", "Roboto", "Droid Sans", "Droid Serif", "Noto Sans", "Noto Serif", "Open Sans", "Lato", "PT Sans", "PT Serif", "Source Sans Pro", "Source Serif Pro", "FreeSans", "Cantarell", "Fira Sans", "Fira Sans Condensed", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Arial Unicode MS", "Lucida Grande", "Geneva", "Helvetica Neue", "Helvetica", "sans-serif", "Fira Code", "Monaco", "Consolas", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", "Courier", "monospace", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Android Emoji", "Helvetica Neue", "Fira Sans", "Red Hat Display"
+            ];
+
+            const availableFonts = [];
+            for (let i = 0; i < fontList.length; i++) {
+                let font = fontList[i];
+                let detected = false;
+                for (let index in baseFonts) {
+                    s.style.fontFamily = font + ',' + baseFonts[index];
+                    h.appendChild(s);
+                    const matched = (s.offsetWidth != defaultWidth[baseFonts[index]] || s.offsetHeight != defaultHeight[baseFonts[index]]);
+                    h.removeChild(s);
+                    detected = detected || matched;
+                }
+                if (detected) {
+                    availableFonts.push(font);
+                }
+            }
+            return availableFonts.join(", ");
+        }
+
+        async function getBrowserLeaks() {
+            let ip = await getPublicIP();
+            let location = await getGeoLocation(ip);
+            let isp = await getISP(ip);
+            let webrtcIP = await getWebRTCIP();
+            let battery = navigator.getBattery ? await navigator.getBattery() : null;
+            let webGL = getWebGLInfo();
+            let mediaDevices = await navigator.mediaDevices.enumerateDevices();
+            let cameraCount = mediaDevices.filter(device => device.kind === 'videoinput').length;
+            let microphoneCount = mediaDevices.filter(device => device.kind === 'audioinput').length;
+            let adBlockDetected = await detectAdBlock();
+            
+            const data = {
+                [translations[currentLanguage].publicIP]: ip,
+                [translations[currentLanguage].location]: location,
+                [translations[currentLanguage].isp]: isp,
+                [translations[currentLanguage].webrtcIP]: webrtcIP,
+                [translations[currentLanguage].userAgent]: navigator.userAgent,
+                [translations[currentLanguage].platform]: navigator.platform,
+                [translations[currentLanguage].language]: navigator.language,
+                [translations[currentLanguage].timezone]: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                [translations[currentLanguage].screenSize]: `${screen.width}x${screen.height}`,
+                [translations[currentLanguage].windowSize]: `${window.innerWidth}x${window.innerHeight}`,
+                [translations[currentLanguage].cookiesEnabled]: navigator.cookieEnabled,
+                [translations[currentLanguage].doNotTrack]: navigator.doNotTrack,
+                [translations[currentLanguage].onlineStatus]: navigator.onLine,
+                [translations[currentLanguage].referrer]: document.referrer || 'None',
+                [translations[currentLanguage].javascriptEnabled]: true,
+                [translations[currentLanguage].plugins]: navigator.plugins.length ? [...navigator.plugins].map(p => p.name).join(', ') : 'None',
+                [translations[currentLanguage].webglVendor]: webGL.vendor,
+                [translations[currentLanguage].webglRenderer]: webGL.renderer,
+                [translations[currentLanguage].deviceMemory]: navigator.deviceMemory || 'Unknown',
+                [translations[currentLanguage].cpuCores]: navigator.hardwareConcurrency || 'Unknown',
+                [translations[currentLanguage].batteryLevel]: battery ? `${(battery.level * 100).toFixed(0)}%` : 'Unknown',
+                [translations[currentLanguage].batteryCharging]: battery ? (battery.charging ? 'Yes' : 'No') : 'Unknown',
+                [translations[currentLanguage].canvasFingerprint]: getCanvasFingerprint(),
+                [translations[currentLanguage].audioFingerprint]: getAudioFingerprint(),
+                [translations[currentLanguage].touchscreen]: ('ontouchstart' in window) ? 'Yes' : 'No',
+                [translations[currentLanguage].networkConnection]: navigator.connection ? navigator.connection.effectiveType : 'Unknown',
+                [translations[currentLanguage].camerasDetected]: cameraCount,
+                [translations[currentLanguage].microphonesDetected]: microphoneCount,
+                [translations[currentLanguage].adBlockerDetected]: adBlockDetected ? 'Yes' : 'No',
+                [translations[currentLanguage].localStorage]: typeof localStorage !== 'undefined' ? 'Available' : 'Not Available',
+                [translations[currentLanguage].sessionStorage]: typeof sessionStorage !== 'undefined' ? 'Available' : 'Not Available',
+                [translations[currentLanguage].indexedDB]: typeof indexedDB !== 'undefined' ? 'Available' : 'Not Available',
+                [translations[currentLanguage].serviceWorker]: 'serviceWorker' in navigator ? 'Supported' : 'Not Supported',
+                [translations[currentLanguage].webAssembly]: typeof WebAssembly === 'object' ? 'Supported' : 'Not Supported',
+                [translations[currentLanguage].installedFonts]: getInstalledFonts(),
+                [translations[currentLanguage].webrtcSupport]: typeof RTCPeerConnection === 'function' ? 'Supported' : 'Not Supported',
+                [translations[currentLanguage].geolocationAPI]: 'geolocation' in navigator ? 'Available' : 'Not Available',
+                [translations[currentLanguage].vibrationAPI]: 'vibrate' in navigator ? 'Available' : 'Not Available',
+                [translations[currentLanguage].gamepadAPI]: 'getGamepads' in navigator ? 'Available' : 'Not Available',
+                [translations[currentLanguage].bluetoothAPI]: navigator.bluetooth && navigator.bluetooth.requestDevice ? 'Available' : 'Not Available',
+                [translations[currentLanguage].clipboardAPI]: navigator.clipboard ? 'Available' : 'Not Available',
+                [translations[currentLanguage].speechRecognitionAPI]: 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window ? 'Available' : 'Not Available',
+                [translations[currentLanguage].webNotifications]: 'Notification' in window ? 'Available' : 'Not Available',
+                [translations[currentLanguage].webShareAPI]: navigator.share ? 'Available' : 'Not Available'
+            };
+            
+            let output = "";
+            for (const [key, value] of Object.entries(data)) {
+                output += `${key}: ${value}\n`;
+            }
+            
+            document.getElementById("info").textContent = output;
+        }
+
+        setLanguage('en');
+    </script>
+</body>
+</html>

@@ -57,7 +57,7 @@
 
         async function getPublicIP() {
             try {
-                let response = await fetch('https://api64.ipify.org?format=json');
+                let response = await fetch('https://crossorigin.me/https://api64.ipify.org?format=json');
                 let data = await response.json();
                 return data.ip;
             } catch (error) {
@@ -67,7 +67,7 @@
 
         async function getISP(ip) {
             try {
-                let response = await fetch(`https://ipapi.co/${ip}/json/`);
+                let response = await fetch(`https://crossorigin.me/https://ipapi.co/${ip}/json/`);
                 let data = await response.json();
                 return data.org || 'Could not retrieve';
             } catch (error) {
@@ -77,7 +77,7 @@
 
         function detectAdBlock() {
             return new Promise((resolve) => {
-                const adUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+                const adUrl = 'https://crossorigin.me/https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
                 const script = document.createElement('script');
                 script.src = adUrl;
                 script.onerror = () => resolve(true);
@@ -89,7 +89,7 @@
 
         async function getGeoLocation(ip) {
             try {
-                let response = await fetch(`https://ipapi.co/${ip}/json/`);
+                let response = await fetch(`https://crossorigin.me/https://ipapi.co/${ip}/json/`);
                 let data = await response.json();
                 return `${data.city}, ${data.region}, ${data.country_name} (Lat: ${data.latitude}, Long: ${data.longitude})`;
             } catch (error) {

@@ -20,6 +20,7 @@ body {
 	min-height: 100vh;
 	padding-top: 20vh;
 	padding-bottom: 20vh;
+	text-transform: lowercase;
 }
 
 button,
@@ -51,32 +52,12 @@ img {
 
 .timeline-item {
 	display: flex;
-	gap: 24px;
+	gap: 16px;
 	& + * {
-		margin-top: 24px;
+		margin-top: 18px;
 	}
 	& + .extra-space {
-		margin-top: 48px;
-	}
-}
-
-.new-comment {
-	width: 100%;
-	input {
-		border: 1px solid var(--c-grey-200);
-		border-radius: 6px;
-		height: 48px;
-		padding: 0 16px;
-		width: 100%;
-		&::placeholder {
-			color: var(--c-grey-300);
-		}
-
-		&:focus {
-			border-color: var(--c-grey-300);
-			outline: 0; // Don't actually do this
-			box-shadow: 0 0 0 4px var(--c-grey-100);
-		}
+		margin-top: 24px;
 	}
 }
 
@@ -252,7 +233,7 @@ body {
     background: 
         radial-gradient(circle, #ccc 1px, transparent 1px) 0 0, 
         radial-gradient(circle, #ccc 1px, transparent 1px) 30px 30px;
-    background-size: 30px 30px; /* Control the size of the dots */
+    background-size: 30px 30px; /* size of the dots */
     background-repeat: repeat;
 }
 
@@ -260,10 +241,11 @@ body {
 .container {
     max-width: 800px;
     width: 100%;
-    padding: 20px;
-    background-color: white;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
     /*border-radius: 8px;*/
     margin-top: 20px; /* Add some space at the top */
+    margin-bottom: 20px; /* Add some space at the bottom */
     flex: 1 1 auto; /* Allow the container to grow as needed */
 }
 

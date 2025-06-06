@@ -361,8 +361,8 @@ footer .links a:hover {
   background-color: #fff;
   color: #333;
   padding: 10px;
-  transition: all 0.2s ease; /* Smooth transition */
-  overflow: hidden; /* Hide content initially */
+  transition: all 0.2s ease;
+  overflow: hidden;
 }
 
 /* Hover effect to make content cover the full card */
@@ -397,7 +397,7 @@ footer .links a:hover {
   }
 }
 
-
+/*
 .links a[href*="blog"]:hover::after {
   content: " - Warning: blogger, runs nonfree nontrivial JavaScript";
   font-size: 0.9em;
@@ -415,10 +415,10 @@ footer .links a:hover {
   transition: opacity 0.2s ease-in-out;
   opacity: 1;
 }
-
 .links a[href*="blog"]::after {
   content: "";
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 
+*/

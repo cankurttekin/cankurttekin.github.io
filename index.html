@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Can Kurttekin's personal website">
     <title>cankurttekin</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" id="stylesheet">
+     <script>
+         function disableCSSAndJS() {
+             document.getElementById('stylesheet').disabled = true;
+             const scripts = document.querySelectorAll('script');
+             scripts.forEach(script => script.remove());
+             document.getElementById('fuck-js').hidden = true;
+         }
+     </script>
   </head>
   <body>
     <div class="container">
       <header>
+        <button onclick="disableCSSAndJS()" id="fuck-js"><strong><i><h6>just fucking use html/i am not a fucking hr button</h6></i></strong></button>
         <h1>can kurttekin</h1>
         <footer>
           <div class="links">

@@ -339,7 +339,7 @@ footer .links a:hover {
   height: 200px; /* Height set to be more of a horizontal rectangle */
   overflow: hidden;
   border-radius: 2px;
-  background-position: top center; /* Align the top of the GIF with the top of the card */
+  background-position: center center;
   background-size: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   transition: transform 0.4s ease;

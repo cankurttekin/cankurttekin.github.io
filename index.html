@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Can Kurttekin's personal website">
     <title>cankurttekin</title>
-    <link rel="stylesheet" href="styles.css" id="stylesheet">
-     <script>
-         function justFuckingUseHtml() {
-             document.getElementById('stylesheet').disabled = true;
-             const scripts = document.querySelectorAll('script');
-             scripts.forEach(script => script.remove());
-             document.getElementById('fuck-js').hidden = true;
-         }
-     </script>
+    <style>
+      body {
+        background-color: #f9f9f6;
+        color: #222;
+        font-family: serif;
+        margin: 0;
+        padding: 0;
+        text-transform: lowercase;
+      }
+      a {
+        color: #6c71c4;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        padding: 2rem;
+      }
+h4 {
+        margin-bottom: 0;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <header>
-        <button onclick="justFuckingUseHtml()" id="fuck-js"><strong><i><h6>just fucking use html button</h6></i></strong></button>
         <h1>can kurttekin</h1>
-        <footer>
           <div class="links">
             <abbr title="blogger"><a href="https://blog.kurttekin.com">blog</a></abbr>
             <abbr title="linkedin.com"><a href="https://linkedin.com/in/cankurttekin">linkedin</a></abbr>
@@ -30,14 +42,13 @@
             <abbr title="ssh terminal.can.kurttekin.com"><a href="ssh://terminal.can.kurttekin.com">ssh</a></abbr> 
           </div>
           <br />
+        <p>i am a software engineer and full-time observer and tinkerer. i love all kinds of engineering and development. i love free software and freedom.</p>
           <p>can <i>at</i> kurttekin <i>dot</i> com</p>
-        </footer>
-        <p>i am a software engineer and full-time observer and tinkerer. i love all kinds of engineering and development. i love free software, freedom in general.</p>
-        <br />
       </header>
+        <br />
 
       <section class="blog-posts">
-        <h3>things i wrote</h3>
+        <h3>blog posts</h3>
         <ul>
           <li><a href="https://blog.kurttekin.com/2025/07/sockets-explained.html">Sockets Explained</a></li>
           <li><a href="https://blog.kurttekin.com/2024/11/domain-models.html">Domain Models</a></li>
@@ -53,98 +64,75 @@
       <section class="projects">
         <h3>things i built in my free time</h3>
         <div class="projects-container">
-          <a href="https://github.com/cankurttekin/sh.kurttekin.com" class="project-card" style="background-image: url('./assets/sshportfolio.gif');">
-            <div class="card-content">
+          <a href="https://github.com/cankurttekin/sh.kurttekin.com">
               <h4 class="project-title">terminal portfolio</h4>
-              <p class="project-description">terminal.can.kurttekin.com is a cli portfolio of mine you can ssh built with go and charm.</p>
-            </div>
           </a>
+              terminal.can.kurttekin.com is a cli portfolio of mine you can ssh built with go and charm.
 
-          <a href="https://github.com/cankurttekin/annotation-to-md" class="project-card" style="background-image: url('./assets/nnotate.gif');">
-            <div class="card-content">
+          <a href="https://github.com/cankurttekin/annotation-to-md">
               <h4 class="project-title">nnotate</h4>
-              <p class="project-description">Convert book annotation/highlights to online markdown notes with OCR and AI assistance. Built with TypeScript, Firebase and Gemini.</p>
-            </div>
           </a>
+              Convert book annotation/highlights to online markdown notes with OCR and AI assistance. Built with TypeScript, Firebase and Gemini.
 
-          <a href="#" class="project-card" style="background-image: url('./assets/rtotp.jpg');">
-            <div class="card-content">
+          <a href="#" class="project-card">
               <h4 class="project-title">R-TOTP</h4>
-              <p class="project-description">a tui totp app built with rust and ratatui.</p>
-            </div>
           </a>
+              <p class="project-description">a tui totp app built with rust and ratatui.
 
-          <a href="https://ozgur-alternatifi.vercel.app" class="project-card" style="background-image: url('./assets/ozgur-yazilim.png');">
-            <div class="card-content">
+          <a href="https://ozgur-alternatifi.vercel.app">
               <h4 class="project-title">free software directory</h4>
-              <p class="project-description">A website that lists free software alternatives for popular proprietary softwares. Built with Angular.</p>
-            </div>
           </a>
+              A website that lists free software alternatives for popular proprietary softwares. Built with Angular.
 
-          <a href="https://flowpoddy.vercel.app" class="project-card" style="background-image: url('./assets/flowpoddy.png');">
-            <div class="card-content">
+          <a href="https://flowpoddy.vercel.app">
               <h4 class="project-title">flowpoddy</h4>
-              <p class="project-description">Combine multiple resource in flowchart ui and generate podcasts, even about given Github Repo link using AI/LLM. Built with Reactjs and React Flow.</p>
-            </div>
           </a>
+              Combine multiple resource in flowchart ui and generate podcasts, even about given Github Repo link using AI/LLM. Built with Reactjs and React Flow.
 
-          <a href="https://atsfs.com" class="project-card" style="background-image: url('./assets/atsfs.gif');">
-            <div class="card-content">
+          <a href="https://atsfs.com">
               <h4 class="project-title">ATSFS.COM</h4>
-              <p class="project-description">Track job applications in one place, visualize your data with graphs, quickly edit and update, generate personalized interview questions with integrated AI/LLM. </p>
-            </div>
           </a>
+              Track job applications in one place, visualize your data with graphs, quickly edit and update, generate personalized interview questions with integrated AI/LLM.
 
-          <a href="https://reporead.vercel.app" class="project-card" style="background-image: url('./assets/reporead.gif');">
-            <div class="card-content">
+          <a href="https://reporead.vercel.app">
               <h4 class="project-title">REPOREAD</h4>
-              <p class="project-description">Generate README markdown for any Github repository in just seconds.</p>
-            </div>
           </a>
+              Generate README markdown for any Github repository in just seconds.
 
 
-          <a href="https://extensions.gnome.org/extension/7083/pin-it/" class="project-card" style="background-image: url('./assets/pinit.gif');">
-            <div class="card-content">
+          <a href="https://extensions.gnome.org/extension/7083/pin-it/">
               <h4 class="project-title">PinIt Gnome Shell Extension</h4>
-              <p class="project-description">GNOME Shell Extension to send yourself custom notifications.</p>
-            </div>
           </a>
+              GNOME Shell Extension to send yourself custom notifications.
 
-          <a href="https://extensions.gnome.org/extension/7071/wikiart-wallpaper/" class="project-card" style="background-image: url('./assets/wikiart.gif');">
-            <div class="card-content">
+          <a href="https://extensions.gnome.org/extension/7071/wikiart-wallpaper/">
               <h4 class="project-title">WikiArt Wallpaper Gnome Extension</h4>
-              <p class="project-description"> GNOME Shell Extension that changes your desktop wallpaper to WikiArt's Artwork of the day.</p>
-            </div>
           </a>
+              GNOME Shell Extension that changes your desktop wallpaper to WikiArt's Artwork of the day.
 
-          <a href="https://github.com/cankurttekin/tcdd-cli" class="project-card" style="background-image: url('./assets/tcdd-cli.png');">
-            <div class="card-content">
+          <a href="https://github.com/cankurttekin/tcdd-cli">
               <h4 class="project-title">TCDD-CLI + Web</h4>
-              <p class="project-description">A tool on your terminal or browser that helps you to find empty seats at Turkish Railways by making requests to TCDD API.</p>
-            </div>
           </a>
+              A tool on your terminal or browser that helps you to find empty seats at Turkish Railways by making requests to TCDD API.
 
-          <a href="https://github.com/cankurttekin/Android-Debloat-Helper-GUI" class="project-card" style="background-image: url('./assets/debloater.gif');">
-            <div class="card-content">
+          <a href="https://github.com/cankurttekin/Android-Debloat-Helper-GUI">
               <h4 class="project-title">Android Debloater GUI</h4>
-              <p class="project-description"> GUI tool to uninstall any apps including system apps without root.</p>
-            </div>
           </a>
+              GUI tool to uninstall any apps including system apps without root.
 
-          <a href="https://github.com/cankurttekin/kindle-ai" class="project-card" style="background-image: url('./assets/kindle-ai.png');">
-            <div class="card-content">
-              <h4 class="project-title">Kindle-ai</h4>
-              <p class="project-description">Ask AI assistant questions using clippings/highlights from your books on your older Kindle.</p>
-            </div>
+          <a href="https://github.com/cankurttekin/kindle-ai">
+                  <h4 class="project-title">Kindle-ai</h4>
           </a>
+          Ask AI assistant questions using clippings/highlights from your books on your older Kindle.
 
-          <a href="https://github.com/cankurttekin/umpc-phone" class="project-card" style="background-image: url('./assets/umpc-phone.jpg');">
-            <div class="card-content">
-              <h4 class="project-title">Linux Handheld - Upcycling Old Android Phones</h4>
-              <p class="project-description">Handheld linux computer made from old Android phone(chroot/proot linux installed) and 3d printed case with keyboard.</p>
-            </div>
+          <a href="https://github.com/cankurttekin/umpc-phone">
+                  <h4 class="project-title">Linux Handheld - Upcycling Old Android Phones</h4>
           </a>
+          Handheld linux computer made from old Android phone(chroot/proot linux installed) and 3d printed case with keyboard.
       </section>
+
+        <br />
+
         <section>
           <h3>how i do my computing</h3>
           <div>
@@ -189,28 +177,43 @@
           </div>
         </section>
 
+        <br />
+
         <section>
-          <h3>things i read</h3>
+          <h3>library</h3>
           <ul>
-            <li> 🗹 <b>Free Software, Free Society: Selected Essays of Richard M. Stallman</b></li>
-            <li> 🗹 <b>Software Engineering</b> - Ian Sommerville</li>
-            <li> 🗹 <b>Design Patterns</b> - Gang Of Four</li>
-            <li> 🗹 <b>Clean Code: A Handbook of Agile Software Craftsmanship</b> - Robert C. Martin</li>
-            <li> 🗹 <b>Dive Into Design Patterns</b> - Alexander Shvets</li>
-            <li> 🕮 <b>Spring Microservices in Action</b> - John Carnell, Illary Huaylupo Sánchez</li>
-            <li> 🗹 <b>Spring Start Here Learn what you need and learn it well</b> - Laurentiu Spilca</li>
-            <li> 🞎  <b>Patterns of Enterprise Application Architecture</b> - Martin Fowler</li>
-            <li> 🗹 <b>Domain-Driven Design</b> - Eric Evans</li>
-            <li> 🞎  <b>Test Driven Development</b> - Kent Beck</li>
-            <li> 🞎  <b>Algorithms</b> - Robert Sedgewick</li>
-            <li> 🗹 <b>A Common-Sense Guide to Data Structures and Algorithms</b> - Jay Wengrow</li>
-            <li> 🞎  <b>Grokking Algorithms</b> - Aditya Bhargava</li>
-            <li> 🕮 <b>The Pragmatic Programmer</b> - David Thomas, Andrew Hunt</li>
-            <li> 🕮 <b>Effective Java</b> - Joshua Bloch</li>
-            <li> 🕮 <b>Effective TypeScript</b> - Dan Vanderkam</li>
-            <li> 🕮 <b>Designing Data-Intensive Applications</b> - Martin Kleppmann</li>
+        <h4>completed</h4>
+          <ul>
+            <li><b>Free Software, Free Society: Selected Essays of Richard M. Stallman</b> - Richard M. Stallman</li>
+            <li><b>Software Engineering</b> - Ian Sommerville</li>
+            <li><b>Design Patterns</b> - Gang Of Four</li>
+            <li><b>Clean Code: A Handbook of Agile Software Craftsmanship</b> - Robert C. Martin</li>
+            <li><b>Dive Into Design Patterns</b> - Alexander Shvets</li>
+            <li><b>Spring Start Here Learn what you need and learn it well</b> - Laurentiu Spilca</li>
+            <li><b>Domain-Driven Design</b> - Eric Evans</li>
+            <li><b>A Common-Sense Guide to Data Structures and Algorithms</b> - Jay Wengrow</li>
+          </ul>
+
+          <h4>in progress</h4>
+          <ul>
+            <li><b>Spring Microservices in Action</b> - John Carnell, Illary Huaylupo Sánchez</li>
+            <li><b>The Pragmatic Programmer</b> - David Thomas, Andrew Hunt</li>
+            <li><b>Effective Java</b> - Joshua Bloch</li>
+            <li><b>Effective TypeScript</b> - Dan Vanderkam</li>
+            <li><b>Designing Data-Intensive Applications</b> - Martin Kleppmann</li>
+          </ul>
+
+          <h4>not started</h4>
+          <ul>
+            <li><b>Patterns of Enterprise Application Architecture</b> - Martin Fowler</li>
+            <li><b>Test Driven Development</b> - Kent Beck</li>
+            <li><b>Algorithms</b> - Robert Sedgewick</li>
+            <li><b>Grokking Algorithms</b> - Aditya Bhargava</li>
+          </ul>
           </ul>
         </section>
+
+        <br />
 
         <section>
           <h3>bookmarks</h3>
@@ -226,9 +229,9 @@
         </section>
         <footer>
           <a href="https://www.fsf.org/about/what-is-free-software">
-            <img src="./assets/support-free-software.png" alt="Support Free Software" style="width: 100%; max-width: 800px; height: auto;">
+Support Free Software
           </a>
           <br />
-          <p>source code of this website licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a>. Source code available on <a href="https://github.com/cankurttekin/cankurttekin.github.io">GitHub</a> and <a href="https://codeberg.org/cankurttekin/cankurttekin.github.io">Codeberg</a>.</p>
+          <p>source code of this website available on <a href="https://github.com/cankurttekin/cankurttekin.github.io">GitHub</a> and <a href="https://codeberg.org/cankurttekin/cankurttekin.github.io">Codeberg</a>.</p>
         </footer>
 </html>

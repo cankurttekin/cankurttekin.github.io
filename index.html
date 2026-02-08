@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" id="top">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>can-kurttekin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     :root {
-      --bg: #000;
-      --fg: #e5e5e5;
+      --fg: #000;
+      --bg: #fff;
       --muted: #777;
     }
 
-    #light:checked ~ main,
-    #light:checked ~ footer {
-      --bg: #fff;
-      --fg: #000;
+    #dark:checked ~ main,
+    #dark:checked ~ footer {
+      --fg: #fff;
+      --bg: #000;
       --muted: #555;
     }
 
@@ -27,7 +25,6 @@
       font-family: monospace;
       font-size: 1.1rem;
       line-height: 1.4;
-      cursor: -webkit-grab; cursor: grab;
     }
     
     main {
@@ -96,30 +93,23 @@ footer {
 
 <body>
 
-<input type="checkbox" id="light">
-<label for="light">light</label>
+<input type="checkbox" id="dark">
+<label for="dark">dark</label>
 
 <main>
 
-<h1>NAME</h1>
 <pre>
-can-kurttekin — software engineer
-</pre>
+I am a software engineer and full-time observer and tinkerer. I enjoy exploring all kinds of engineering, development and free software.
 
-<h1>OPTIONS</h1>
-<pre>
 <a href="#links">#links</a>         external links
-<a href="#computing">#computing</a>     computing setup 
-<a href="#writings">#writings</a>      blog posts 
+<a href="#computing">#computing</a>     computing setup
+<a href="#writings">#writings</a>      blog posts
 <a href="#projects">#projects</a>      personal projects
-<a href="#reading">#reading</a>       reading list
-<a href="#contact">#contact</a>       contact information
+<a href="#reading">#reading</a>       library
+<a href="#bookmarks">#bookmarks</a>     video content creators i enjoy
+<a href="#contact">#contact</a>       email me
 </pre>
 
-<h1>DESCRIPTION</h1>
-<pre>
-I am a software engineer and full-time observer and tinkerer. I love all kinds of engineering and development and free and open source software.
-</pre>
 
 <h2 id="links">LINKS</h2>
 <pre>
@@ -127,22 +117,22 @@ I am a software engineer and full-time observer and tinkerer. I love all kinds o
 <a href="//linkedin.com/in/cankurttekin">LinkedIn ⟨linkedin.com/in/cankurttekin⟩</a>
 <a href="//github.com/cankurttekin">GitHub ⟨github.com/cankurttekin⟩</a>
 <a href="//codeberg.org/cankurttekin">Codeberg ⟨codeberg.org/cankurttekin⟩</a>
-<a href="//pgp.mit.edu/pks/lookup?op=get&search=0xAC9A980E2">GPG</a>
+<a href="//pgp.mit.edu/pks/lookup?op=get&search=0xAC9A980E2">GPG ⟨pgp.mit.edu⟩</a>
 </pre>
 
 
 <h2 id="computing">COMPUTING</h2>
 <pre>
-Lenovo Yoga 7i(i5 1335u 16G) - daily driver, Fedora
-Lenovo Thinkpad x230(i5 3320M, 8G) - Libre, GNU Guix
-Acer Nitro 5(i7 7700hq, 16G) - headless, wol, Fedora - using as resource sharing, temp. container running server when im out of res. on my daily driver.
-Keyboard: Dactyl Manuform
-Old Android phone, OEM Unlocked, Debian 12 - Exit Node for my home network, pi-hole and Nextcloud
+Libre needs: Lenovo Thinkpad x230(i5 3320M, 8G) - Libreboot, GNU GUIX System, ath9k open source firmware for wifi card
+Daily driver: Lenovo Yoga 7i(i5 1335u 16G) - Fedora Sway Spin
+Home Server1 Acer Nitro 5(i7 7700hq, 16G) - headless, wol, Fedora - using as resource sharing, temp. container running server when im out of res. on my other machines
+"Home Server"2 Old Android phone OEM Unlocked, Debian 12 - Exit Node for my home network, pi-hole and Nextcloud
+Keyboard Dactyl Manuform
 
 Text editor: neovim
 Window manager: Sway
-Terminal: foot + tmux + tmux sessionizer
-Agentic Tools: opencode + Supermaven plugin on neovim
+Terminal: foot + tmux + tmux sessionizer + fzf
+Agentic Tools: opencode + Supermaven plugin(neovim)
 Browser: LibreWolf + Vimium
 Search Engine: DuckDuckGo
 Mobile
@@ -231,9 +221,20 @@ NOT STARTED
     Grokking Algorithms
 </pre>
 
+<h2 id="bookmarks">BOOKMARKS</h2>
+<pre>
+<a href= "//youtube.com/@ThePrimeTimeagen">ThePrimeagen</a>
+<a href="//youtube.com/@BrodieRobertson">Brodie Robertson</a>
+<a href="//youtube.com/@TechnologyConnections">Technology Connections</a>
+<a href= "//youtube.com/@bigclivedotcom">bigclivedotcom</a>
+<a href="//youtube.com/@Computerphile">Computerphile</a>
+<a href="//youtube.com/@LowLevelTV">Low Level</a>
+<a href="//youtube.com/@davidbombal">David Bombal</a>
+</pre>
+
 <h2 id="contact">CONTACT</h2>
 <pre>
-can at kurttekin dot com
+can <i>at</i> kurttekin <i>dot</i> com
 </pre>
 
 <h1>SEE ALSO</h1>
@@ -244,7 +245,7 @@ can at kurttekin dot com
 </main>
 
 <footer>
-  <span>can-kurttekin(1)</span>
+  <span>can-kurttekin</span>
   <span>TAB: next link,  SHIFT+TAB: prev link, /: search, ↑/↓: page up/down</span>
   <span>EOF</span>
 </footer>

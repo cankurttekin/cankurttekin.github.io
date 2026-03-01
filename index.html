@@ -1,116 +1,38 @@
-<html>
-<head>
-  <title>can-kurttekin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    :root {
-      --fg: #000;
-      --bg: #fff;
-      --muted: #777;
-    }
-
-    #dark:checked ~ main,
-    #dark:checked ~ footer {
-      --fg: #fff;
-      --bg: #000;
-      --muted: #555;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: monospace;
-      font-size: 1.1rem;
-      line-height: 1.4;
-    }
-    
-    main {
-      background: var(--bg);
-      color: var(--fg);
-      padding: 1.5rem 2rem 3.5rem 2rem;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
-
-    h1, h2 {
-      font-size: 1em;
-      font-weight: bold;
-      margin: 1.2rem 0 0.3rem 0;
-      text-transform: uppercase;
-    }
-
-    pre {
-      margin: 0;
-      margin-left: 1.2rem;
-      white-space: pre-wrap;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-      outline: none;
-      color: var(--bg);
-      background: var(--fg);
-    }
-
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    label {
-      position: fixed;
-      top: 0;
-      right: 0;
-      padding: 0.3rem 0.6rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-      cursor: pointer;
-      background: transparent;
-    }
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--fg);
-  color: var(--bg);
-  font-size: 0.65rem;
-  padding: 0.12rem 0.25rem;
-  display: flex;
-  justify-content: space-between;
-}
-  </style>
-</head>
-
+<html><head>
+<title>can-kurttekin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--fg:#000;--bg:#fff;--muted:#777;}
+#dark:checked ~ main{--fg:#fff;--bg:#000;--muted:#555;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+font-family:monospace;font-size:1.1rem;line-height:1.4;}
+main{background:var(--bg);color:var(--fg);padding:1.5rem 2rem 3.5rem 2rem;
+min-height:100vh;box-sizing:border-box;}
+h1,h2{font-size:1em;font-weight:bold;margin:1.2rem 0 0.3rem 0;
+text-transform:uppercase;}
+pre{margin:0;margin-left:1.2rem;white-space:pre-wrap;}
+a{color:inherit;text-decoration:none;}
+a:hover,a:focus{text-decoration:underline;outline:none;color:var(--bg);
+background:var(--fg);}
+input[type="checkbox"]{display:none;}
+label{position:fixed;top:0;right:0;padding:0.3rem 0.6rem;font-size:0.75rem;
+color:var(--muted);cursor:pointer;background:transparent;}
+</style></head>
 <body>
-
 <input type="checkbox" id="dark">
 <label for="dark">dark</label>
-
 <main>
-
 <pre>
 I am a software engineer and full-time observer and tinkerer. I enjoy exploring all kinds of engineering, development and free software.
 
-<a href="#links">#links</a>         external links
-<a href="#computing">#computing</a>     computing setup
-<a href="#writings">#writings</a>      blog posts
-<a href="#projects">#projects</a>      personal projects
-<a href="#reading">#reading</a>       library
-<a href="#bookmarks">#bookmarks</a>     video content creators i enjoy
-<a href="#contact">#contact</a>       email me
+<a href="#links">#links</a>
+<a href="#writings">#writings</a>
+<a href="#computing">#computing</a>
+<a href="#projects">#projects</a>
+<a href="#reading">#reading</a>
+<a href="#bookmarks">#bookmarks</a>
+<a href="#contact">#contact</a>
 </pre>
-
-
 <h2 id="links">LINKS</h2>
 <pre>
 <a href="//blog.kurttekin.com">Blog ⟨blog.kurttekin.com⟩</a>
@@ -119,27 +41,6 @@ I am a software engineer and full-time observer and tinkerer. I enjoy exploring 
 <a href="//codeberg.org/cankurttekin">Codeberg ⟨codeberg.org/cankurttekin⟩</a>
 <a href="//pgp.mit.edu/pks/lookup?op=get&search=0xAC9A980E2">GPG ⟨pgp.mit.edu⟩</a>
 </pre>
-
-
-<h2 id="computing">COMPUTING</h2>
-<pre>
-Libre needs: Lenovo Thinkpad x230(i5 3320M, 8G) - Libreboot, GNU GUIX System, ath9k open source firmware for wifi card
-Daily driver: Lenovo Yoga 7i(i5 1335u 16G) - Fedora Sway Spin
-Home Server1 Acer Nitro 5(i7 7700hq, 16G) - headless, wol, Fedora - using as resource sharing, temp. container running server when im out of res. on my other machines
-"Home Server"2 Old Android phone OEM Unlocked, Debian 12 - Exit Node for my home network, pi-hole and Nextcloud
-Keyboard Dactyl Manuform
-
-Text editor: neovim
-Window manager: Sway
-Terminal: foot + tmux + tmux sessionizer + fzf
-Agentic Tools: opencode + Supermaven plugin(neovim)
-Browser: LibreWolf + Vimium
-Search Engine: DuckDuckGo
-Mobile
-    Browser: Fennec from F-Droid
-    Music: VLC for local playback
-</pre>
-
 <h2 id="writings">WRITINGS</h2>
 <pre>
 <a href="//blog.kurttekin.com/2026/01/liberating-my-thinkpad-x230-laptop.html">[jan 20, 2026] Liberating my thinkpad x230 laptop, flashing free bios firmware</a>
@@ -155,44 +56,62 @@ Mobile
 <a href="//blog.kurttekin.com/2024/07/onion-architecture.html">[jul 19, 2024] Onion Architecture</a>
 <a href="//blog.kurttekin.com/2024/06/design-patterns.html">[jun 10, 2024] Design Patterns</a>
 </pre>
+<h2 id="computing">COMPUTING</h2>
+<pre>
+Libre: Lenovo Thinkpad x230(i5 3320M, 8G) - Libreboot, GNU GUIX System, ath9k binary blob free wifi fw
+Daily driver: Lenovo Yoga 7i(i5 1335u 16G) - Fedora Sway Spin
+Home Server1 Acer Nitro 5(i7 7700hq, 16G) - headless, wol, Fedora - using as resource sharing, temp. container running server when im out of res. on my other machines
+"Home Server"2 Unlocked Old Android phone running Debian 12 - Exit Node on home network, pi-hole and Nextcloud
+Keyboard Dactyl Manuform
+
+Text editor: neovim
+Window manager: Sway
+Terminal: foot + tmux + tmux sessionizer + fzf
+Agentic Tools: opencode + Supermaven plugin(neovim)
+Browser: LibreWolf + Vimium
+Search Engine: DuckDuckGo
+Mobile
+    Browser: Fennec from F-Droid
+    Music: VLC for local playback
+</pre>
 
 <h2 id="projects">PROJECTS</h2>
 <pre>
 <a href="//github.com/cankurttekin/termtime">termtime</a>
-    Screentime-like CLI app for shell history
+ Screentime-like CLI app for shell history
 
 <a href="//github.com/cankurttekin/sh.kurttekin.com">terminal portfolio</a>
-    ssh terminal.can.kurttekin.com
+ ssh terminal.can.kurttekin.com
 
 <a href="//github.com/cankurttekin/pinit-nvim">pinit-nvim</a>
-    Project-based note-taking plugin for neovim
+ Project-based note-taking plugin for neovim
 
 <a href="//github.com/cankurttekin/job-application-tracker">ATSFS.COM</a>
-    Job application tracking with AI assistance
+ Job application tracking with AI assistance
 
 <a href="//flowpoddy.vercel.app">flowpoddy</a>
-    Flowchart-based podcast generator
+ Flowchart-based podcast generator
 
 <a href="//reporead.vercel.app">REPOREAD</a>
-    Generate README files for GitHub repositories
+ Generate README files for GitHub repositories
 
 <a href="//extensions.gnome.org/extension/7083/pin-it/">PinIt</a>
-    GNOME Shell notification extension
+ GNOME Shell notification extension
 
 <a href="//extensions.gnome.org/extension/7071/wikiart-wallpaper/">WikiArt Wallpaper</a>
-    Daily artwork GNOME Shell extension
+ Daily artwork GNOME Shell extension
 
 <a href="//github.com/cankurttekin/tcdd-cli">TCDD-CLI + Web</a>
-    Find empty seats via TCDD API
+ Find empty seats via TCDD API
 
 <a href="//github.com/cankurttekin/Android-Debloat-Helper-GUI">Android Debloater GUI</a>
-    Remove system apps without root
+ Remove system apps without root
 
 <a href="//github.com/cankurttekin/kindle-ai">Kindle-ai</a>
-    AI assistant using Kindle highlights
+ AI assistant using Kindle highlights
 
 <a href="//github.com/cankurttekin/umpc-phone">Linux Handheld</a>
-    Upcycling old Android phones
+ Upcycling old Android phones
 </pre>
 
 <h2 id="reading">READING</h2>
@@ -220,7 +139,6 @@ NOT STARTED
     Algorithms — Sedgewick
     Grokking Algorithms
 </pre>
-
 <h2 id="bookmarks">BOOKMARKS</h2>
 <pre>
 <a href= "//youtube.com/@ThePrimeTimeagen">ThePrimeagen</a>
@@ -231,24 +149,11 @@ NOT STARTED
 <a href="//youtube.com/@LowLevelTV">Low Level</a>
 <a href="//youtube.com/@davidbombal">David Bombal</a>
 </pre>
-
 <h2 id="contact">CONTACT</h2>
 <pre>
 can <i>at</i> kurttekin <i>dot</i> com
 </pre>
-
-<h1>SEE ALSO</h1>
 <pre>
-<a href="//github.com/cankurttekin/cankurttekin.github.io">source code ⟨github.com/cankurttekin/cankurttekin.github.io⟩ GPL</a>
-</pre>
 
-</main>
-
-<footer>
-  <span>can-kurttekin</span>
-  <span>TAB: next link,  SHIFT+TAB: prev link, /: search, ↑/↓: page up/down</span>
-  <span>EOF</span>
-</footer>
-
-</body>
-</html>
+<a href="//github.com/cankurttekin/cankurttekin.github.io">source code ⟨github⟩</a>
+</pre></main></body></html>

@@ -1,32 +1,41 @@
-<html><head>
-<title>can-kurttekin</title>
+<html><head><title>cankurttekin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{--bg:#232136;--fg:#e0def4;--muted:#6e6a86;--accent:#9ccfd8;
 --heading:#ebbcba;--link-hover:#eb6f92;--hover-bg:#44415a;}
 #lights:checked ~ main{--bg:#faf4ed;--fg:#575279;--muted:#9893a5;
 --accent:#31748f;--heading:#b4637a;--link-hover:#d7827e;--hover-bg:#dfdad9;}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
-font-family:monospace;font-size:1.1rem;line-height:1.4;
-transition:background 0.3s,color 0.3s;}
+*{margin:0;padding:0;background:var(--bg);color:var(--fg);
+font-family:monospace;font-weight:bold;font-size:1.1rem;line-height:1.4;
+transition:background 0.2s,color 0.2s;}
 main{background:var(--bg);color:var(--fg);padding:1.5rem 2rem 3.5rem 2rem;
 min-height:100vh;box-sizing:border-box;}
-h1,h2{font-size:1em;font-weight:bold;margin:1.2rem 0 0.3rem 0;
+h1,h2{font-size:1.1em;margin:1.2rem 0 0.3rem 0;
 text-transform:uppercase;color:var(--heading);}
 pre{margin:0;margin-left:1.2rem;white-space:pre-wrap;}
 a{color:var(--accent);text-decoration:none;}
 a:hover,a:focus{text-decoration:underline;outline:none;
-background-color:var(--hover-bg);color:var(--accent);}
+background-color:var(--hover-bg);}
 input[type="checkbox"]{display:none;}
-label{position:fixed;top:0;right:0;padding:0.3rem 0.6rem;font-size:0.75rem;
-color:var(--muted);cursor:pointer;background:transparent;}
+label{position:fixed;top:0;right:0;padding:0.3rem 0.6rem;font-size:0.8rem;
+color:var(--muted);background:transparent;}
+.blink{animation:blink .5s step-end infinite alternate;
+border-right:14px solid var(--fg);}
+@keyframes blink{50%{border-color:transparent;}}
 </style></head>
 <body>
 <input type="checkbox" id="lights">
 <label for="lights">lights</label>
 <main>
-I'm a software developer and full-time observer and tinkerer. I enjoy exploring all kinds of engineering, development and free software.
-<br/><br/>
+$ ./cankurttekin<span class="blink"></span>
+<pre>
+
+I'm a software developer who builds mostly with Java.
+I enjoy exploring all kinds of engineering and development;
+observing, tinkering, and using libre software.
+I like using GNU/Linux, window managers, terminal and vim.
+
+</pre>
 <a href="#links">#links</a>
 <a href="#writings">#writings</a>
 <a href="#computing">#computing</a>
@@ -156,5 +165,6 @@ can <i>at</i> kurttekin <i>dot</i> com
 </pre><br/>
 <a href="//github.com/cankurttekin/cankurttekin.github.io">source code ⟨github⟩</a>
 <br/>
-This site was styled with the <a href="https://github.com/rose-pine" alt="rose pine github" target="_blank">Rosé Pine theme</a>.
+This site was styled with the <a href="https://github.com/rose-pine" 
+alt="rose pine github" target="_blank">Rosé Pine theme</a>.
 </main></body></html>

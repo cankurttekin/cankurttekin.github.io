@@ -1,34 +1,13 @@
 <html><head><title>cankurttekin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-:root{--bg:#232136;--fg:#e0def4;--muted:#6e6a86;--accent:#9ccfd8;
---heading:#ebbcba;--link-hover:#eb6f92;--hover-bg:#44415a;}
-#lights:checked ~ main{--bg:#faf4ed;--fg:#575279;--muted:#9893a5;
---accent:#31748f;--heading:#b4637a;--link-hover:#d7827e;--hover-bg:#dfdad9;}
-*{margin:0;padding:0;background:var(--bg);color:var(--fg);
-font-family:monospace;font-weight:bold;font-size:1.1rem;line-height:1.4;
-transition:background 0.2s,color 0.2s;}
-main{background:var(--bg);color:var(--fg);padding:1.5rem 2rem 3.5rem 2rem;
-min-height:100vh;box-sizing:border-box;}
-h1,h2{font-size:1.1em;margin:1.2rem 0 0.3rem 0;
-text-transform:uppercase;color:var(--heading);}
-pre{margin:0;margin-left:1.2rem;white-space:pre-wrap;}
-a{color:var(--accent);text-decoration:none;}
-a:hover,a:focus{text-decoration:underline;outline:none;
-background-color:var(--hover-bg);}
-input[type="checkbox"]{display:none;}
-label{position:fixed;top:0;right:0;padding:0.3rem 0.6rem;font-size:0.8rem;
-color:var(--muted);background:transparent;}
-.blink{animation:blink .5s step-end infinite alternate;
-border-right:14px solid var(--fg);}
-@keyframes blink{50%{border-color:transparent;}}
-</style></head>
+<link rel="stylesheet" href="./assets/css/style.css">
+</head>
 <body>
 <input type="checkbox" id="lights">
 <label for="lights">lights</label>
 <main>
-$ ./cankurttekin --info<span class="blink"></span>
-<br/>
+$ ./cankurttekin<span class="blink"></span>
+<br/><br/>
 <!--
 <pre>
 
@@ -38,114 +17,25 @@ observing, tinkering, and using libre software.
 I like using GNU/Linux, window managers, terminal and vim.
 
 </pre>
-<a href="#links">#links</a>
-<a href="#computing">#computing</a>
-<a href="#projects">#projects</a>
-<a href="#reading">#reading</a>
-<a href="#bookmarks">#bookmarks</a>
-<a href="#contact">#contact</a>
-<h2 id="links">LINKS</h2>
 -->
 <pre>
 <a href="//blog.kurttekin.com" alt="blog" target="_blank">Blog ⟨blog.kurttekin.com⟩</a>
 <a href="//github.com/cankurttekin" alt="github" target="_blank">GitHub ⟨github.com/cankurttekin⟩</a>
 <a href="//codeberg.org/cankurttekin" alt="codeberg" target="_blank">Codeberg ⟨codeberg.org/cankurttekin⟩</a>
 <a href="//pgp.mit.edu/pks/lookup?op=get&search=0xAC9A980E2" alt="pgp key" target="_blank">GPG ⟨pgp.mit.edu⟩</a>
+can <i>at</i> kurttekin <i>dot</i> com
+
+<a href="./swe/computing.html" alt="how i do my computing">#computing</a>
+<a href="./swe/reading.html" alt="books i read about software engineering">#reading</a>
+<a href="./swe/bookmarks.html" alt="content creators i enjoy">#bookmarks</a>
+
+-- non–software engineering related
+<a href="./other/books.html" alt="books i read">#books i read</a>
 </pre>
 <!--<a href="//linkedin.com/in/cankurttekin" alt="linkedin" target="_blank">LinkedIn ⟨linkedin.com/in/cankurttekin⟩</a>-->
-<h2 id="computing">COMPUTING</h2>
-<pre>
-Lenovo Thinkpad x230(i5 3320M, 8G) - Libreboot, GNU GUIX
-Lenovo Yoga 7i(i5 1335u 16G) - Fedora Sway Spin
-Keyboard - Dactyl Manuform
-
-Text editor - neovim
-Window manager - Sway
-Terminal - foot & tmux & tmux sessionizer & fzf
-Agentic - opencode
-Browsing - LibreWolf & DuckDuckGo & Vimium 
-</pre>
-<!--
-<h2 id="projects">PROJECTS</h2>
-<pre>
-<a href="//github.com/cankurttekin/termtime">termtime</a>
- Screentime-like CLI app for shell history
-
-<a href="//github.com/cankurttekin/sh.kurttekin.com">terminal portfolio</a>
- ssh terminal.can.kurttekin.com
-
-<a href="//github.com/cankurttekin/pinit-nvim">pinit-nvim</a>
- Project-based note-taking plugin for neovim
-
-<a href="//github.com/cankurttekin/job-application-tracker">ATSFS.COM</a>
- Job application tracking with AI assistance
-
-<a href="//flowpoddy.vercel.app">flowpoddy</a>
- Flowchart-based podcast generator
-
-<a href="//reporead.vercel.app">REPOREAD</a>
- Generate README files for GitHub repositories
-
-<a href="//extensions.gnome.org/extension/7083/pin-it/">PinIt</a>
- GNOME Shell notification extension
-
-<a href="//extensions.gnome.org/extension/7071/wikiart-wallpaper/">WikiArt Wallpaper</a>
- Daily artwork GNOME Shell extension
-
-<a href="//github.com/cankurttekin/tcdd-cli">TCDD-CLI + Web</a>
- Find empty seats via TCDD API
-
-<a href="//github.com/cankurttekin/Android-Debloat-Helper-GUI">Android Debloater GUI</a>
- Remove system apps without root
-
-<a href="//github.com/cankurttekin/kindle-ai">Kindle-ai</a>
- AI assistant using Kindle highlights
-
-<a href="//github.com/cankurttekin/umpc-phone">Linux Handheld</a>
- Upcycling old Android phones
-</pre>
--->
-<h2 id="reading">READING</h2>
-<pre>
-COMPLETED
-    Free Software, Free Society — Stallman
-    Software Engineering — Sommerville
-    Design Patterns — GoF
-    Clean Code — Robert C. Martin
-    Dive Into Design Patterns — Shvets
-    Spring Start Here — Spilca
-    Domain-Driven Design — Evans
-    Data Structures & Algorithms — Wengrow
-
-IN PROGRESS
-    Spring Microservices in Action
-    The Pragmatic Programmer
-    Effective Java
-    Effective TypeScript
-    Designing Data-Intensive Applications
-
-NOT STARTED
-    Patterns of Enterprise Application Architecture
-    Test Driven Development
-    Algorithms — Sedgewick
-    Grokking Algorithms
-</pre>
-<h2 id="bookmarks">BOOKMARKS</h2>
-<pre>
-<a href= "//youtube.com/@ThePrimeTimeagen">ThePrimeagen</a>
-<a href="//youtube.com/@BrodieRobertson">Brodie Robertson</a>
-<a href="//youtube.com/@TechnologyConnections">Technology Connections</a>
-<a href= "//youtube.com/@bigclivedotcom">bigclivedotcom</a>
-<a href="//youtube.com/@Computerphile">Computerphile</a>
-<a href="//youtube.com/@LowLevelTV">Low Level</a>
-<a href="//youtube.com/@davidbombal">David Bombal</a>
-</pre>
-<h2 id="contact">CONTACT</h2>
-<pre>
-can <i>at</i> kurttekin <i>dot</i> com
-</pre><br/>
-<a href="//github.com/cankurttekin/cankurttekin.github.io">source code ⟨github⟩</a>
+<br/><br/>
+<a href="//github.com/cankurttekin/cankurttekin.github.io" alt="source code" target="_blank">source code ⟨github⟩</a>
 <br/>
-This site was styled with the <a href="https://github.com/rose-pine" 
+This site was styled with the <a href="//github.com/rose-pine" 
 alt="rose pine github" target="_blank">Rosé Pine theme</a>.
 </main></body></html>
